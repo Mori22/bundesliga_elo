@@ -83,9 +83,9 @@ class OpenLigaDB:
 # %% testarea
 
 if __name__ == "__main__":
-    openligadb = OpenLigaDB(ligaID="bl1")
-    # openligadb.get_matchday_result_data(season=2022, matchday=1)
-    # print(openligadb.get_matchday_result_dataframe(season=2022, matchday=1))
+    openligadb = OpenLigaDB(ligaID="PL")
+    openligadb.get_matchday_result_data(season=2022, matchday=1)
+    print(openligadb.get_matchday_result_dataframe(season=2016, matchday=1))
 
     # matchday_result = openligadb.get_matchday_result_dataframe(season=2022, matchday=1)
 
@@ -93,5 +93,7 @@ if __name__ == "__main__":
 
     # team_data = openligadb.get_season_teams_dataframe(season=2002)
     # print(team_data)
-    test_teams = openligadb.get_teams_dataframe(start_season=2002, end_season=2022)
-    print(test_teams)
+    # test_teams = openligadb.get_teams_dataframe(start_season=2020, end_season=2021)
+    # print(test_teams)
+
+# %%
