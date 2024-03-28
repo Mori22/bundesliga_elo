@@ -35,7 +35,7 @@ class BuLiElo:
     start_season: int = field(default=2002)
     end_season: int = field(default=2022)
 
-    def __post_init__(self) -> None:
+    def get_match_data(self) -> None:
         self.match_data = self.openligadb.get_result_dataframe(
             start_season=self.start_season, end_season=self.end_season
         )
@@ -259,7 +259,7 @@ if __name__ == "__main__":
     # print(test_team)
     # test_team.update_elo(999)
     # print(test_team)
-    test_elo = BuLiElo(start_season=2004)
+    test_elo = BuLiElo(start_season=2022, end_season=2022)
     # test_elo.create_team(
     #     team_id=1, team_name="Eintracht Frankfurt", team_short_name="SGE"
     # )
@@ -268,6 +268,8 @@ if __name__ == "__main__":
     # )
     # print(test_elo)
     test_elo.create_all_teams()
+
+    test_elo.get_match_data()
 
     # print(test_elo.match_data)
 
@@ -289,9 +291,12 @@ if __name__ == "__main__":
 
     test_elo.evaluate_all_matches()
 
+    # test_elo.plot_all_teams_elo_history()
+
+    # %%
+    test_elo.plot_selected_teams_elo_history(team_ids=[6, 7, 91, 40])
+
+    # %%
     test_elo.plot_all_teams_elo_history()
-
-    test_elo.plot_selected_teams_elo_history(team_ids=[6, 7, 91, 40, 9, 100, 129])
-
 
 # %%
